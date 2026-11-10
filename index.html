@@ -25,15 +25,21 @@ body{margin:0;background:var(--sea);color:var(--text);font-family:var(--body);fo
   padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px));
   display:flex;flex-direction:column;gap:28px;position:relative}
 .decor{position:absolute;top:0;right:max(16px, env(safe-area-inset-right, 0px));width:190px;height:330px;pointer-events:none;overflow:hidden}
-.catch{position:absolute;inset:0;transform:translateY(-40px)}
+.catch{position:absolute;inset:0;transform:translateY(-12px)}
 .rig{position:absolute;top:-80px;left:70px;width:80px;height:230px}
 /* fish faces left; its mouth sits at 14px 48px, the point it hangs from once hooked */
-.fishpos{position:absolute;top:0;left:0;width:130px;height:84px;transform-origin:14px 48px;transform:translate(82px,76px) rotate(80deg)}
+.fishpos{position:absolute;top:0;left:0;width:130px;height:84px;transform-origin:14px 48px;transform:translate(89px,78px) rotate(90deg)}
 .fish{display:block;width:130px;height:84px;transform-origin:14px 48px}
 .bubble{position:absolute;border:3px solid var(--foam);border-radius:50%;opacity:.8}
 .b1{width:16px;height:16px;top:178px;right:146px}
 .b2{width:11px;height:11px;top:150px;right:160px}
 .b3{width:22px;height:22px;top:116px;right:140px}
+.b4{width:12px;height:12px;top:200px;left:52px}
+.b5{width:18px;height:18px;top:230px;left:150px}
+.b6{width:9px;height:9px;top:250px;left:70px}
+.b7{width:14px;height:14px;top:215px;left:165px}
+.b8{width:10px;height:10px;top:265px;left:135px}
+.b4,.b5,.b6,.b7,.b8{opacity:0}
 .eyebrow,h1{max-width:calc(100% - 170px)}
 .eyebrow{font-size:14px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);margin:0}
 h1{font-family:var(--display);font-weight:900;font-size:clamp(44px,9vw,84px);line-height:1.05;margin:0;text-wrap:balance}
@@ -63,14 +69,17 @@ h2{font-family:var(--display);font-size:24px;margin:0 0 4px}
   .fish{animation:flap .45s 3s ease-in-out infinite alternate}
   .bubble{animation:rise 3.6s ease-in infinite}
   .b2{animation-delay:1.2s}.b3{animation-delay:2.4s}
+  .b4,.b5,.b6,.b7,.b8{animation:fizz 1.4s ease-in infinite}
+  .b4{animation-delay:3s}.b5{animation-delay:3.3s}.b6{animation-delay:3.6s}.b7{animation-delay:3.9s}.b8{animation-delay:4.2s}
+  @keyframes fizz{0%{transform:translate(0,0) scale(.6);opacity:0}20%{opacity:.9}100%{transform:translate(6px,-110px) scale(1.1);opacity:0}}
   @keyframes bite{
     0%{transform:translate(190px,210px) rotate(0)}
     45%{transform:translate(125px,125px) rotate(-6deg)}
-    70%{transform:translate(82px,76px) rotate(0)}
-    78%{transform:translate(82px,70px) rotate(10deg)}
-    100%{transform:translate(82px,76px) rotate(80deg)}
+    70%{transform:translate(89px,78px) rotate(0)}
+    78%{transform:translate(89px,72px) rotate(12deg)}
+    100%{transform:translate(89px,78px) rotate(90deg)}
   }
-  @keyframes reel{from{transform:translateY(0)}to{transform:translateY(-40px)}}
+  @keyframes reel{from{transform:translateY(0)}to{transform:translateY(-12px)}}
   @keyframes flap{from{transform:rotate(-9deg)}to{transform:rotate(9deg)}}
   @keyframes rise{0%{transform:translateY(0);opacity:0}15%{opacity:.8}100%{transform:translateY(-90px);opacity:0}}
 }
@@ -104,7 +113,7 @@ h2{font-family:var(--display);font-size:24px;margin:0 0 4px}
       <path d="M16 86 L27 99" fill="none" stroke="var(--amber)" stroke-width="5" stroke-linecap="round"/>
     </svg>
     </div>
-    <span class="bubble b1"></span><span class="bubble b2"></span><span class="bubble b3"></span>
+    <span class="bubble b1"></span><span class="bubble b2"></span><span class="bubble b3"></span><span class="bubble b4"></span><span class="bubble b5"></span><span class="bubble b6"></span><span class="bubble b7"></span><span class="bubble b8"></span>
   </div>
 
   <p class="eyebrow">UOW Cyber Awareness Month · Training demo</p>
