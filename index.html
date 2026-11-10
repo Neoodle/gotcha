@@ -31,6 +31,8 @@ body{margin:0;background:var(--sea);color:var(--text);font-family:var(--body);fo
 .fishpos{position:absolute;top:0;left:0;width:130px;height:84px;transform-origin:14px 48px;transform:translate(89px,38px) rotate(90deg)}
 /* once swallowed, the bend of the hook is hidden inside the fish */
 .bend{opacity:0}
+.mouth,.gulp{transform-box:fill-box;transform-origin:center}
+.mouth{transform:scale(0)}
 .fish{display:block;width:130px;height:84px;transform-origin:14px 48px}
 .bubble{position:absolute;border:3px solid var(--foam);border-radius:50%;opacity:.8}
 .b1{width:16px;height:16px;top:178px;right:146px}
@@ -68,6 +70,13 @@ h2{font-family:var(--display);font-size:24px;margin:0 0 4px}
 @media (prefers-reduced-motion:no-preference){
   .fishpos{animation:bite 3s ease-in-out both}
   .bend{animation:swallow .3s 2.05s both}
+  /* mouth opens wide on the approach, snaps shut on the hook, then the fish gulps */
+  .mouth{animation:chomp 2.3s both}
+  .smile{animation:hide 2.3s both}
+  .gulp{animation:gulp .45s 2.1s ease-out both}
+  @keyframes chomp{0%,55%{transform:scale(0)}80%{transform:scale(1)}88%{transform:scale(1.1)}100%{transform:scale(0)}}
+  @keyframes hide{0%,55%{opacity:1}60%,95%{opacity:0}100%{opacity:1}}
+  @keyframes gulp{0%{transform:scale(1)}35%{transform:scale(1.12,.86)}70%{transform:scale(.95,1.06)}100%{transform:scale(1)}}
   @keyframes swallow{from{opacity:1}to{opacity:0}}
   .catch{animation:reel .9s 3s ease-out both}
   .fish{animation:flap .45s 3s ease-in-out infinite alternate}
@@ -110,13 +119,16 @@ h2{font-family:var(--display);font-size:24px;margin:0 0 4px}
           <stop offset="0" stop-color="#5fb0ff"/><stop offset="1" stop-color="#2563eb"/>
         </linearGradient>
       </defs>
+      <g class="gulp">
       <path d="M94 42 L126 16 Q120 42 126 68 Z" fill="#2563eb"/>
       <path d="M48 18 Q62 2 78 14 Z" fill="#3b82f6"/>
       <ellipse cx="56" cy="42" rx="44" ry="28" fill="url(#scales)"/>
       <path d="M62 50 Q72 62 84 52" fill="none" stroke="#1e40af" stroke-width="3" stroke-linecap="round"/>
       <circle cx="32" cy="34" r="9" fill="#fff"/>
       <circle cx="29" cy="34" r="4.5" fill="#0b2545"/>
-      <path d="M14 48 Q19 52 24 48" fill="none" stroke="#0b2545" stroke-width="3" stroke-linecap="round"/>
+      <path class="smile" d="M14 48 Q19 52 24 48" fill="none" stroke="#0b2545" stroke-width="3" stroke-linecap="round"/>
+      <ellipse class="mouth" cx="19" cy="47" rx="9" ry="8" fill="#0b2545" stroke="#1e40af" stroke-width="2"/>
+      </g>
     </svg>
       </div>
     </div>
