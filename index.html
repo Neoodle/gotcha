@@ -24,9 +24,12 @@ body{margin:0;background:var(--sea);color:var(--text);font-family:var(--body);fo
 .wrap{max-width:760px;margin:0 auto;padding-block:48px 64px;
   padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px));
   display:flex;flex-direction:column;gap:28px;position:relative}
-.decor{position:absolute;top:0;right:max(16px, env(safe-area-inset-right, 0px));width:190px;height:330px;pointer-events:none}
-.rig{position:absolute;top:0;right:40px;width:80px;height:150px}
-.fish{position:absolute;top:200px;right:0;width:130px;height:84px}
+.decor{position:absolute;top:0;right:max(16px, env(safe-area-inset-right, 0px));width:190px;height:330px;pointer-events:none;overflow:hidden}
+.catch{position:absolute;inset:0;transform:translateY(-40px)}
+.rig{position:absolute;top:-80px;left:70px;width:80px;height:230px}
+/* fish faces left; its mouth sits at 14px 48px, the point it hangs from once hooked */
+.fishpos{position:absolute;top:0;left:0;width:130px;height:84px;transform-origin:14px 48px;transform:translate(82px,76px) rotate(80deg)}
+.fish{display:block;width:130px;height:84px;transform-origin:14px 48px}
 .bubble{position:absolute;border:3px solid var(--foam);border-radius:50%;opacity:.8}
 .b1{width:16px;height:16px;top:178px;right:146px}
 .b2{width:11px;height:11px;top:150px;right:160px}
@@ -55,12 +58,20 @@ h2{font-family:var(--display);font-size:24px;margin:0 0 4px}
   .eyebrow,h1{max-width:none}
 }
 @media (prefers-reduced-motion:no-preference){
-  .fish{animation:swim 3.2s ease-in-out infinite}
-  .rig{animation:bob 3s ease-in-out infinite}
+  .fishpos{animation:bite 3s ease-in-out both}
+  .catch{animation:reel .9s 3s ease-out both}
+  .fish{animation:flap .45s 3s ease-in-out infinite alternate}
   .bubble{animation:rise 3.6s ease-in infinite}
   .b2{animation-delay:1.2s}.b3{animation-delay:2.4s}
-  @keyframes swim{50%{transform:translate(-8px,-6px) rotate(-3deg)}}
-  @keyframes bob{50%{transform:translateY(5px)}}
+  @keyframes bite{
+    0%{transform:translate(190px,210px) rotate(0)}
+    45%{transform:translate(125px,125px) rotate(-6deg)}
+    70%{transform:translate(82px,76px) rotate(0)}
+    78%{transform:translate(82px,70px) rotate(10deg)}
+    100%{transform:translate(82px,76px) rotate(80deg)}
+  }
+  @keyframes reel{from{transform:translateY(0)}to{transform:translateY(-40px)}}
+  @keyframes flap{from{transform:rotate(-9deg)}to{transform:rotate(9deg)}}
   @keyframes rise{0%{transform:translateY(0);opacity:0}15%{opacity:.8}100%{transform:translateY(-90px);opacity:0}}
 }
 </style>
@@ -69,12 +80,8 @@ h2{font-family:var(--display);font-size:24px;margin:0 0 4px}
 
 <main class="wrap">
   <div class="decor" aria-hidden="true">
-    <svg class="rig" viewBox="0 0 80 150">
-      <line x1="50" y1="0" x2="50" y2="44" stroke="var(--line)" stroke-width="3"/>
-      <circle cx="50" cy="49" r="5" fill="none" stroke="var(--amber)" stroke-width="4"/>
-      <path d="M50 54 V112 A17 17 0 0 1 16 112 V88" fill="none" stroke="var(--amber)" stroke-width="6" stroke-linecap="round"/>
-      <path d="M16 86 L27 99" fill="none" stroke="var(--amber)" stroke-width="5" stroke-linecap="round"/>
-    </svg>
+    <div class="catch">
+      <div class="fishpos">
     <svg class="fish" viewBox="0 0 130 84">
       <defs>
         <linearGradient id="scales" x1="0" y1="0" x2="0" y2="1">
@@ -89,6 +96,14 @@ h2{font-family:var(--display);font-size:24px;margin:0 0 4px}
       <circle cx="29" cy="34" r="4.5" fill="#0b2545"/>
       <path d="M14 48 Q19 52 24 48" fill="none" stroke="#0b2545" stroke-width="3" stroke-linecap="round"/>
     </svg>
+      </div>
+    <svg class="rig" viewBox="0 -80 80 230">
+      <line x1="50" y1="-80" x2="50" y2="44" stroke="var(--line)" stroke-width="3"/>
+      <circle cx="50" cy="49" r="5" fill="none" stroke="var(--amber)" stroke-width="4"/>
+      <path d="M50 54 V112 A17 17 0 0 1 16 112 V88" fill="none" stroke="var(--amber)" stroke-width="6" stroke-linecap="round"/>
+      <path d="M16 86 L27 99" fill="none" stroke="var(--amber)" stroke-width="5" stroke-linecap="round"/>
+    </svg>
+    </div>
     <span class="bubble b1"></span><span class="bubble b2"></span><span class="bubble b3"></span>
   </div>
 
