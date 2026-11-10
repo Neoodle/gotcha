@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Gotcha Voucher Link</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=Source+Sans+3:wght@400;600;700&display=swap">
+<style>
+/* Layout: one calm screen under a hanging fishing line; the "bait" turns into the lesson. Single deep-sea look to match the slides. */
+:root{
+  --sea:#0b2545; --deep:#071a33; --panel:#13315c; --line:#8da9c4;
+  --foam:#cfe3f2; --text:#eef4fa; --muted:#a9bfd6;
+  --coral:#d64545; --amber:#f2994a; --teal:#13838f;
+  --display:"Merriweather", Georgia, "Times New Roman", serif;
+  --body:"Source Sans 3", "Segoe UI", Arial, sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{min-height:100%}
+body{margin:0;background:var(--sea);color:var(--text);font-family:var(--body);font-size:18px;line-height:1.55;
+  background-image:radial-gradient(ellipse at 50% 120%, var(--teal) 0%, transparent 55%);}
+.wrap{max-width:760px;margin:0 auto;padding-block:48px 64px;
+  padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px));
+  display:flex;flex-direction:column;gap:28px;position:relative}
+.decor{position:absolute;top:0;right:max(16px, env(safe-area-inset-right, 0px));width:190px;height:330px;pointer-events:none}
+.rig{position:absolute;top:0;right:40px;width:80px;height:150px}
+.fish{position:absolute;top:200px;right:0;width:130px;height:84px}
+.bubble{position:absolute;border:3px solid var(--foam);border-radius:50%;opacity:.8}
+.b1{width:16px;height:16px;top:178px;right:146px}
+.b2{width:11px;height:11px;top:150px;right:160px}
+.b3{width:22px;height:22px;top:116px;right:140px}
+.eyebrow,h1{max-width:calc(100% - 170px)}
+.eyebrow{font-size:14px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);margin:0}
+h1{font-family:var(--display);font-weight:900;font-size:clamp(44px,9vw,84px);line-height:1.05;margin:0;text-wrap:balance}
+.lead{font-size:clamp(19px,2.6vw,22px);color:var(--text);margin:0;max-width:60ch}
+.safe{display:flex;gap:12px;align-items:flex-start;background:var(--panel);border-left:6px solid var(--teal);border-radius:12px;padding:16px 18px;margin:0}
+.safe strong{color:var(--foam)}
+h2{font-family:var(--display);font-size:24px;margin:0 0 4px}
+.flags{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.flags li{display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:start;background:var(--deep);border-radius:12px;padding:14px 16px}
+.flags b{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--coral);font-size:20px}
+.flags p{margin:0;min-width:0}
+.flags span{display:block;font-weight:700;color:var(--foam)}
+.motto{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.motto div{border-radius:12px;padding:16px;min-width:0}
+.motto h3{margin:0 0 4px;font-size:15px;letter-spacing:.12em}
+.motto p{margin:0;font-size:16px}
+.p{background:var(--coral)}.c{background:var(--amber);color:#1b1b1b}.r{background:var(--teal)}
+.foot{font-size:14px;color:var(--muted);margin:0}
+@media (max-width:640px){
+  .motto{grid-template-columns:1fr}
+  .decor{position:relative;right:auto;align-self:flex-end;height:250px;margin-block:-48px -70px;transform:scale(.8);transform-origin:top right}
+  .eyebrow,h1{max-width:none}
+}
+@media (prefers-reduced-motion:no-preference){
+  .fish{animation:swim 3.2s ease-in-out infinite}
+  .rig{animation:bob 3s ease-in-out infinite}
+  .bubble{animation:rise 3.6s ease-in infinite}
+  .b2{animation-delay:1.2s}.b3{animation-delay:2.4s}
+  @keyframes swim{50%{transform:translate(-8px,-6px) rotate(-3deg)}}
+  @keyframes bob{50%{transform:translateY(5px)}}
+  @keyframes rise{0%{transform:translateY(0);opacity:0}15%{opacity:.8}100%{transform:translateY(-90px);opacity:0}}
+}
+</style>
+</head>
+<body>
+
+<main class="wrap">
+  <div class="decor" aria-hidden="true">
+    <svg class="rig" viewBox="0 0 80 150">
+      <line x1="50" y1="0" x2="50" y2="44" stroke="var(--line)" stroke-width="3"/>
+      <circle cx="50" cy="49" r="5" fill="none" stroke="var(--amber)" stroke-width="4"/>
+      <path d="M50 54 V112 A17 17 0 0 1 16 112 V88" fill="none" stroke="var(--amber)" stroke-width="6" stroke-linecap="round"/>
+      <path d="M16 86 L27 99" fill="none" stroke="var(--amber)" stroke-width="5" stroke-linecap="round"/>
+    </svg>
+    <svg class="fish" viewBox="0 0 130 84">
+      <defs>
+        <linearGradient id="scales" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#5fb0ff"/><stop offset="1" stop-color="#2563eb"/>
+        </linearGradient>
+      </defs>
+      <path d="M94 42 L126 16 Q120 42 126 68 Z" fill="#2563eb"/>
+      <path d="M48 18 Q62 2 78 14 Z" fill="#3b82f6"/>
+      <ellipse cx="56" cy="42" rx="44" ry="28" fill="url(#scales)"/>
+      <path d="M62 50 Q72 62 84 52" fill="none" stroke="#1e40af" stroke-width="3" stroke-linecap="round"/>
+      <circle cx="32" cy="34" r="9" fill="#fff"/>
+      <circle cx="29" cy="34" r="4.5" fill="#0b2545"/>
+      <path d="M14 48 Q19 52 24 48" fill="none" stroke="#0b2545" stroke-width="3" stroke-linecap="round"/>
+    </svg>
+    <span class="bubble b1"></span><span class="bubble b2"></span><span class="bubble b3"></span>
+  </div>
+
+  <p class="eyebrow">UOW Cyber Awareness Month · Training demo</p>
+  <h1>Gotcha!<br>You took the bait.</h1>
+  <p class="lead">There is no free voucher. You clicked a link on a slide without checking where it goes, which is exactly what a phisher hopes you'll do.</p>
+
+  <p class="safe"><span><strong>Don't worry, you're safe.</strong> This page is a harmless training demo. Nothing was downloaded, and no information about you was collected.</span></p>
+
+  <section>
+    <h2>What should have stopped you</h2>
+    <ul class="flags">
+      <li><b aria-hidden="true">🎁</b><p><span>A prize you didn't enter for</span>Free gifts and vouchers are classic bait.</p></li>
+      <li><b aria-hidden="true">⏱</b><p><span>Pressure to act now</span>"Claim now" gives you no time to think.</p></li>
+      <li><b aria-hidden="true">🔗</b><p><span>A link you never checked</span>Hover over a link, or long-press it on a phone, to see where it really goes before you tap.</p></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Next time, remember</h2>
+    <div class="motto">
+      <div class="p"><h3>PAUSE</h3><p>Urgency and secrecy are the hook.</p></div>
+      <div class="c"><h3>CHECK</h3><p>Trust verification, not tone.</p></div>
+      <div class="r"><h3>REPORT</h3><p>Fast and blame-free. You protect everyone.</p></div>
+    </div>
+  </section>
+
+  <p class="foot">Part of the "Don't Take the Bait" security awareness session on AI phishing and deepfakes.</p>
+</main>
+</body>
+</html>
